@@ -10,6 +10,7 @@ import 'triangle_painter.dart';
 abstract class MenuItemProvider {
   String get menuTitle;
   Widget get menuImage;
+  int get userInfo;
   TextStyle get menuTextStyle;
   TextAlign get menuTextAlign;
 }
