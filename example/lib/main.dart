@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:popup_menu/popup_menu.dart';
-import 'package:popup_menu_example/gesture_demo.dart';
+import 'package:popup_menu/popup_menu.dart' as ppm;
+
+import 'gesture_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,16 +17,16 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
   final String title;
+
+  const MyHomePage({super.key, required this.title});
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  PopupMenu menu;
+  late ppm.PopupMenu menu;
   GlobalKey btnKey = GlobalKey();
   GlobalKey btnKey2 = GlobalKey();
   GlobalKey btnKey3 = GlobalKey();
@@ -34,28 +35,28 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
 
-    menu = PopupMenu(items: [
-      // MenuItem(title: 'Copy', image: Image.asset('assets/copy.png')),
-      // MenuItem(title: 'Home', image: Icon(Icons.home, color: Colors.white,)),
-      MenuItem(
+    menu = ppm.PopupMenu(items: [
+      // ppm.ppm.MenuItem(title: 'Copy', image: Image.asset('assets/copy.png')),
+      // ppm.MenuItem(title: 'Home', image: Icon(Icons.home, color: Colors.white,)),
+      ppm.MenuItem(
           title: 'Mail',
           image: Icon(
             Icons.mail,
             color: Colors.white,
           )),
-      MenuItem(
+      ppm.MenuItem(
           title: 'Power',
           image: Icon(
             Icons.power,
             color: Colors.white,
           )),
-      MenuItem(
+      ppm.MenuItem(
           title: 'Setting',
           image: Icon(
             Icons.settings,
             color: Colors.white,
           )),
-      MenuItem(
+      ppm.MenuItem(
           title: 'PopupMenu',
           image: Icon(
             Icons.menu,
@@ -68,8 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
     print('menu is ${isShow ? 'showing' : 'closed'}');
   }
 
-  void onClickMenu(MenuItemProvider item) {
-    print('Click menu -> ${item.menuTitle}');
+  void onClickMenu(ppm.MenuItemProvider? item) {
+    print('Click menu -> ${item?.menuTitle}');
   }
 
   void onDismiss() {
@@ -78,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    PopupMenu.context = context;
+    ppm.PopupMenu.context = context;
 
     return Scaffold(
       appBar: AppBar(
@@ -143,42 +144,42 @@ class _MyHomePageState extends State<MyHomePage> {
   void checkState(BuildContext context) {
     final snackBar = new SnackBar(content: new Text('这是一个SnackBar!'));
 
-    Scaffold.of(context).showSnackBar(snackBar);
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   void maxColumn() {
-    PopupMenu menu = PopupMenu(
+    ppm.PopupMenu menu = ppm.PopupMenu(
         // backgroundColor: Colors.teal,
         // lineColor: Colors.tealAccent,
         maxColumn: 3,
         items: [
-          MenuItem(title: 'Copy', image: Image.asset('assets/copy.png')),
-          // MenuItem(
+          ppm.MenuItem(title: 'Copy', image: Image.asset('assets/copy.png')),
+          // ppm.MenuItem(
           //     title: 'Home',
           //     // textStyle: TextStyle(fontSize: 10.0, color: Colors.tealAccent),
           //     image: Icon(
           //       Icons.home,
           //       color: Colors.white,
           //     )),
-          // MenuItem(
+          // ppm.MenuItem(
           //     title: 'Mail',
           //     image: Icon(
           //       Icons.mail,
           //       color: Colors.white,
           //     )),
-          MenuItem(
+          ppm.MenuItem(
               title: 'Power',
               image: Icon(
                 Icons.power,
                 color: Colors.white,
               )),
-          MenuItem(
+          ppm.MenuItem(
               title: 'Setting',
               image: Icon(
                 Icons.settings,
                 color: Colors.white,
               )),
-          MenuItem(
+          ppm.MenuItem(
               title: 'PopupMenu',
               image: Icon(
                 Icons.menu,
@@ -193,38 +194,38 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //
   void customBackground() {
-    PopupMenu menu = PopupMenu(
+    ppm.PopupMenu menu = ppm.PopupMenu(
         // backgroundColor: Colors.teal,
         // lineColor: Colors.tealAccent,
         // maxColumn: 2,
         items: [
-          MenuItem(title: 'Copy', image: Image.asset('assets/copy.png')),
-          MenuItem(
+          ppm.MenuItem(title: 'Copy', image: Image.asset('assets/copy.png')),
+          ppm.MenuItem(
               title: 'Home',
               // textStyle: TextStyle(fontSize: 10.0, color: Colors.tealAccent),
               image: Icon(
                 Icons.home,
                 color: Colors.white,
               )),
-          MenuItem(
+          ppm.MenuItem(
               title: 'Mail',
               image: Icon(
                 Icons.mail,
                 color: Colors.white,
               )),
-          MenuItem(
+          ppm.MenuItem(
               title: 'Power',
               image: Icon(
                 Icons.power,
                 color: Colors.white,
               )),
-          MenuItem(
+          ppm.MenuItem(
               title: 'Setting',
               image: Icon(
                 Icons.settings,
                 color: Colors.white,
               )),
-          MenuItem(
+          ppm.MenuItem(
               title: 'PopupMenu',
               image: Icon(
                 Icons.menu,

@@ -1,13 +1,11 @@
-
 import 'package:flutter/material.dart';
-import 'package:popup_menu/popup_menu.dart';
+import 'package:popup_menu/popup_menu.dart' as ppm;
 
 class GestureDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _GestureDemoState();
   }
-
 }
 
 class _GestureDemoState extends State<GestureDemo> {
@@ -47,38 +45,38 @@ class _GestureDemoState extends State<GestureDemo> {
   }
 
   void onShow() {
-    PopupMenu menu = PopupMenu(
+    ppm.PopupMenu menu = ppm.PopupMenu(
         // backgroundColor: Colors.teal,
         // lineColor: Colors.tealAccent,
         // maxColumn: 2,
         items: [
-          MenuItem(title: 'Copy', image: Image.asset('assets/copy.png')),
-          MenuItem(
+          ppm.MenuItem(title: 'Copy', image: Image.asset('assets/copy.png')),
+          ppm.MenuItem(
               title: 'Home',
               // textStyle: TextStyle(fontSize: 10.0, color: Colors.tealAccent),
               image: Icon(
                 Icons.home,
                 color: Colors.white,
               )),
-          MenuItem(
+          ppm.MenuItem(
               title: 'Mail',
               image: Icon(
                 Icons.mail,
                 color: Colors.white,
               )),
-          MenuItem(
+          ppm.MenuItem(
               title: 'Power',
               image: Icon(
                 Icons.power,
                 color: Colors.white,
               )),
-          MenuItem(
+          ppm.MenuItem(
               title: 'Setting',
               image: Icon(
                 Icons.settings,
                 color: Colors.white,
               )),
-          MenuItem(
+          ppm.MenuItem(
               title: 'PopupMenu',
               image: Icon(
                 Icons.menu,
@@ -91,11 +89,7 @@ class _GestureDemoState extends State<GestureDemo> {
     menu.show(widgetKey: btnKey);
   }
 
-  void onClickMenu(MenuItemProvider item) {
+  void onClickMenu(ppm.MenuItemProvider? item) {}
 
-  }
-
-  void onDismiss() {
-    
-  }
+  void onDismiss() {}
 }
